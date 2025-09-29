@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://blo0b1ejhch4e"]
+
+[ext_resource type="Texture2D" uid="uid://r8fxpbp0s721" path="res://assets/bg.jpg" id="1_8hxod"]
+[ext_resource type="Script" uid="uid://8grxl1q3irc2" path="res://scripts/menu.gd" id="1_bo06a"]
+[ext_resource type="FontFile" uid="uid://c8w7gc1tmw7st" path="res://assets/gothic-joker/Gothic-Joker.ttf" id="2_bo06a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_15se8"]
+texture = ExtResource("1_8hxod")
+modulate_color = Color(0.627451, 0.627451, 0.627451, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8hxod"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bo06a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15se8"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bo06a")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_15se8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.025
+offset_top = 28.0
+offset_right = 784.025
+offset_bottom = 180.0
+scale = Vector2(1, 0.991172)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -5
+theme_override_constants/shadow_offset_y = 6
+theme_override_fonts/font = ExtResource("2_bo06a")
+theme_override_font_sizes/font_size = 131
+text = "JOKER  NEVER  ENDS"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 12.025
+offset_top = 212.23
+offset_right = 224.645
+offset_bottom = 297.23
+theme_override_colors/font_hover_pressed_color = Color(0.775064, 0.775063, 0.775064, 1)
+theme_override_colors/font_hover_color = Color(0.899258, 0.899258, 0.899258, 1)
+theme_override_fonts/font = ExtResource("2_bo06a")
+theme_override_font_sizes/font_size = 76
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8hxod")
+text = "START"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 12.025
+offset_top = 313.685
+offset_right = 224.645
+offset_bottom = 398.685
+theme_override_fonts/font = ExtResource("2_bo06a")
+theme_override_font_sizes/font_size = 76
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bo06a")
+text = "SETTINGS"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 12.025
+offset_top = 416.045
+offset_right = 224.645
+offset_bottom = 501.045
+scale = Vector2(1, 0.991022)
+theme_override_fonts/font = ExtResource("2_bo06a")
+theme_override_font_sizes/font_size = 76
+theme_override_styles/focus = SubResource("StyleBoxEmpty_15se8")
+text = "EXIT"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

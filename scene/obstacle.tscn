@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6rtppmsurat0"]
+
+[ext_resource type="Texture2D" uid="uid://busyb8hqr17ri" path="res://icon.svg" id="1_p1pd2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1pd2"]
+size = Vector2(131, 133)
+
+[sub_resource type="Animation" id="Animation_nyukl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(750, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p1pd2"]
+resource_name = "obst"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(750, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nyukl"]
+_data = {
+&"RESET": SubResource("Animation_nyukl"),
+&"obst": SubResource("Animation_p1pd2")
+}
+
+[node name="movingobstr" type="StaticBody2D"]
+position = Vector2(750, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p1pd2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p1pd2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nyukl")
+}
+autoplay = "obst"
